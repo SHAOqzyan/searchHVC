@@ -10,17 +10,18 @@ doFITS=myFITS()
 doHVC=seachhvc()
 
 
-dataPath="/home/qzyan/WORK/projects/searchHVMC/data/G210/"
+dataPath="/home/qzyan/WORK/projects/searchHVC/data/G210/"
 
 if 0:
     doHVC.searchCloud(  "2100-035U.fits",path=dataPath )
 
-if 0:
+if 1:
 
     allCOFITS=doHVC.getAllCO12FITS(dataPath)
 
     for eachCO in allCOFITS:
-        doHVC.searchCloud(eachCO)
+        print eachCO
+        doHVC.searchCloud(eachCO,outPath=doHVC.tmpPath )
 
 if 0:
     comBinTB=doHVC.getAllTBFiles(doHVC.tmpPath )
@@ -30,7 +31,7 @@ if 0:
 if 0:
     doHVC.checkTB("combinedTB.fit")
 
-if 1:
+if 0:
 
     TB=Table.read("combinedTB.fit")
 

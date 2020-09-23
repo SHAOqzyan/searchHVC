@@ -94,7 +94,7 @@ class seachhvc(object):
 
 
 
-    def searchCloud(self,rawCOFITS,path=None ):
+    def searchCloud(self,rawCOFITS,path=None,outPath=None ):
         """
         run dbscan, down to 2 sigma
         :param rawCOFITS:
@@ -115,8 +115,22 @@ class seachhvc(object):
 
         rmsFITS=self.getRMSfitsName(rawCOFITS)
 
-        rawCOFITS=doFITS.cropFITS(rawCOFITS,Vrange=self.cutVrange,Lrange= cutLrange ,Brange=cutBrange, velUnit ='ms',overWrite=True)
-        rmsFITS=doFITS.cropFITS2D(rmsFITS, Lrange= cutLrange ,Brange=cutBrange ,overWrite=True)
+
+        outRawFITS=None
+        outRmsFITS=None
+
+        if outPath is not None:
+            rawBase =  os.path.basename(rawCOFITS)
+            rawBaseRMS =  os.path.basename(rmsFITS)
+
+            outRawFITS = os.path.join( outPath,  os.path.splitext(rawBase)[0]+"_C.fits"     )
+            outRmsFITS = os.path.join( outPath,  os.path.splitext(rawBaseRMS)[0]+"_C.fits"     )
+
+
+
+
+        rawCOFITS=doFITS.cropFITS(rawCOFITS,Vrange=self.cutVrange,Lrange= cutLrange ,Brange=cutBrange,  outFITS= outRawFITS ,  velUnit ='ms',overWrite=True)
+        rmsFITS=doFITS.cropFITS2D(rmsFITS, Lrange= cutLrange ,Brange=cutBrange ,overWrite=True, outFITS= outRmsFITS  )
 
 
         doMWdbscan.rawCOFITS= rawCOFITS
