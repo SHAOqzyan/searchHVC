@@ -270,9 +270,11 @@ class seachhvc(object):
             bRangeSpec = [ drawB - Radius, drawB + Radius  ]
 
             averageSpec,Vs= doFITS.getAverageSpecByLBrange(rawCOFITS,  lRange = lRangeSpec  ,bRange= bRangeSpec )
-
-            spectralMean=np.mean(  averageSpec[ int(eachRow["peakV"])-50:int(eachRow["peakV"]) -10  ]  )
-
+            spectralMean=0
+            try:
+                spectralMean=np.mean(  averageSpec[ int(eachRow["peakV"])-50:int(eachRow["peakV"]) -10  ]  )
+            except:
+                pass
             rms=np.sqrt( np.mean(  np.square(averageSpec[averageSpec<= spectralMean ]) )  )
             #ax.axhline(Vs, averageSpec,color='blue',where='mid',lw=0.8   ,zorder=2, label= labelStr )
 
