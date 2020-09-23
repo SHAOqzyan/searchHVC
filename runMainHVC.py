@@ -23,7 +23,7 @@ if 0:
         print eachCO
         doHVC.searchCloud(eachCO,outPath=doHVC.tmpPath )
 
-if 1:
+if 0:
     comBinTB=doHVC.getAllTBFiles(doHVC.tmpPath )
 
     #print len( comBinTB  )
@@ -38,8 +38,8 @@ if 1:
 
     part1TB= doFITS.selectTBByColRange(TB,"v_cen", minV=90 )
 
-    doHVC.drawCloudSpectra(part1TB ,dataPath)
+    doHVC.drawCloudSpectra(part1TB ,doHVC.tmpPath )
 
 
     part2TB= doFITS.selectTBByColRange(TB,"v_cen", maxV=-30 )
-    doHVC.drawCloudSpectra(part2TB ,dataPath)
+    doHVC.drawCloudSpectra(part2TB ,doHVC.tmpPath)
