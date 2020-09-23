@@ -10,10 +10,10 @@ doFITS=myFITS()
 doHVC=seachhvc()
 
 
-dataPath="/home/qzyan/WORK/projects/searchHVC/data/G210/"
+dataPath="/share/data/mwisp/R19/"
 
-if 0:
-    doHVC.searchCloud(  "2100-035U.fits",path=dataPath )
+#dataPath="/home/qzyan/WORK/projects/searchHVC/data/G210/"
+
 
 if 1:
 
@@ -23,15 +23,15 @@ if 1:
         print eachCO
         doHVC.searchCloud(eachCO,outPath=doHVC.tmpPath )
 
-if 0:
+if 1:
     comBinTB=doHVC.getAllTBFiles(doHVC.tmpPath )
 
     #print len( comBinTB  )
 
-if 0:
+if 1:
     doHVC.checkTB("combinedTB.fit")
 
-if 0:
+if 1:
 
     TB=Table.read("combinedTB.fit")
 
@@ -41,5 +41,5 @@ if 0:
     doHVC.drawCloudSpectra(part1TB ,dataPath)
 
 
-    part2TB= doFITS.selectTBByColRange(TB,"v_cen", maxV=-200 )
+    part2TB= doFITS.selectTBByColRange(TB,"v_cen", maxV=-30 )
     doHVC.drawCloudSpectra(part2TB ,dataPath)

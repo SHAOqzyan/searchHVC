@@ -41,8 +41,23 @@ class seachhvc(object):
     bRange=0.25
     tbNameCol="tbNameCol"
     def __init__(self):
-        pass
 
+
+        try:
+            os.path.mkdir("data")
+        except:
+            pass
+
+        try:
+            os.path.mkdir("tmpFigures")
+        except:
+            pass
+
+
+        try:
+            os.path.mkdir("tmpFiles")
+        except:
+            pass
 
 
 
