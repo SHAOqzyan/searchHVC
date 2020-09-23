@@ -15,7 +15,7 @@ dataPath="/share/data/mwisp/R19/"
 #dataPath="/home/qzyan/WORK/projects/searchHVC/data/G210/"
 
 
-if 1:
+if 0:
 
     allCOFITS=doHVC.getAllCO12FITS(dataPath)
 
