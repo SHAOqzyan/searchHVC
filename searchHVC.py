@@ -253,7 +253,7 @@ class seachhvc(object):
         rc('text', usetex=True)
         rc('font', **{'family': 'sans-serif', 'size': 18, 'serif': ['Helvetica']})
 
- 
+
 
         for eachRow in TB:
 
@@ -288,6 +288,10 @@ class seachhvc(object):
 
 
                 continue
+
+            if  eachRow["peakV"] >6800 and eachRow["peakV"]<6900:
+                continue
+
 
             ax = fig.add_subplot(2, 1, 1)
             ax2 = fig.add_subplot(2, 1, 2, sharex=ax)
