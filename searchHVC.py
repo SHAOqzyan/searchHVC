@@ -272,7 +272,7 @@ class seachhvc(object):
             averageSpec,Vs= doFITS.getAverageSpecByLBrange(rawCOFITS,  lRange = lRangeSpec  ,bRange= bRangeSpec )
             spectralMean=0
             try:
-                spectralMean=np.mean(  averageSpec[ int(eachRow["peakV"])-50:int(eachRow["peakV"]) -10  ]  )
+                spectralMean=np.nanmean(  averageSpec[ int(eachRow["peakV"])-50:int(eachRow["peakV"]) -10  ]  )
             except:
                 pass
             rms=np.sqrt( np.mean(  np.square(averageSpec[averageSpec<= spectralMean ]) )  )
