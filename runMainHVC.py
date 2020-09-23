@@ -10,12 +10,13 @@ doFITS=myFITS()
 doHVC=seachhvc()
 
 
-dataPath="/share/data/mwisp/R19/"
+#dataPath="/share/data/mwisp/R19/"
 
 #dataPath="/home/qzyan/WORK/projects/searchHVC/data/G210/"
 
+dataPath="/share/data/mwisp/G130+00/"
 
-if 0:
+if 1:
 
     allCOFITS=doHVC.getAllCO12FITS(dataPath)
 
@@ -23,7 +24,7 @@ if 0:
         print eachCO
         doHVC.searchCloud(eachCO,outPath=doHVC.tmpPath )
 
-if 0:
+if 1:
     comBinTB=doHVC.getAllTBFiles(doHVC.tmpPath )
 
     #print len( comBinTB  )
